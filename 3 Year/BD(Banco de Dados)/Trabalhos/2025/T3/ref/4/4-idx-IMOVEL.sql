@@ -1,0 +1,7 @@
+Table	Non_unique	Key_name	Seq_in_index	Column_name	Collation	Cardinality	Sub_part	Packed	Null	Index_type	Comment	Index_comment
+IMOVEL	0	PRIMARY	1	INSCRICAO	A	10	NULL	NULL		BTREE		
+IMOVEL	1	CPF_PROPRIETARIO	1	CPF_PROPRIETARIO	A	10	NULL	NULL		BTREE		
+IMOVEL	1	COD_ENDERECO	1	COD_ENDERECO	A	10	NULL	NULL		BTREE		
+IMOVEL	1	idx_preco_venda	1	PRECO_VENDA	A	10	NULL	NULL		BTREE		
+IMOVEL	1	idx_area_total	1	AREA_TOTAL	A	10	NULL	NULL		BTREE		
+IMOVEL	1	idx_dta_expiracao	1	DTA_EXPIRACAO	A	2	NULL	NULL		BTREE		

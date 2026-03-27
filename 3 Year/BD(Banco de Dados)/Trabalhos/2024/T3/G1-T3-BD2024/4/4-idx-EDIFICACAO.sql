@@ -1,0 +1,7 @@
+Table	Non_unique	Key_name	Seq_in_index	Column_name	Collation	Cardinality	Sub_part	Packed	Null	Index_type	Comment	Index_comment
+EDIFICACAO	0	PRIMARY	1	ID_EDIFICACAO	A	5	NULL	NULL		BTREE		
+EDIFICACAO	1	INSCRICAO_IMOVEL	1	INSCRICAO_IMOVEL	A	5	NULL	NULL		BTREE		
+EDIFICACAO	1	idx_area_construida	1	AREA_CONSTRUIDA	A	5	NULL	NULL		BTREE		
+EDIFICACAO	1	idx_padrao_construcao	1	PADRAO_CONSTRUCAO	A	5	NULL	NULL		BTREE		
+EDIFICACAO	1	idx_destinacao	1	DESTINACAO	A	5	NULL	NULL		BTREE		
+EDIFICACAO	1	idx_habitada	1	HABITADA	A	5	NULL	NULL		BTREE		

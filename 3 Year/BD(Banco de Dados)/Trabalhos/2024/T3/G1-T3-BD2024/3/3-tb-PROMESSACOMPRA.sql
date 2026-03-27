@@ -1,0 +1,7 @@
+Field	Type	Null	Key	Default	Extra
+ID_PROMESSA	int(11)	NO	PRI	NULL	auto_increment
+DATA_EXPIRACAO	date	NO		NULL	
+INSCRICAO	int(11)	NO	MUL	NULL	
+PRIORIDADE	int(11)	NO		NULL	
+CPF_COMPRADOR	varchar(11)	NO	MUL	NULL	
+CPF_CORRETOR	varchar(11)	NO	MUL	NULL	

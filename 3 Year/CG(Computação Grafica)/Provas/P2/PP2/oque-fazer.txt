@@ -1,0 +1,34 @@
+I. Todos os alunos devem ler a seção 4.6.4. do livro do autor Sumanta Guha (anexo PP2_CG.pdf) intitulada
+Viewing Transformation and Collision Detection in Animation e a seção 4.7.1. intitulada Animating an
+Articulated Figure.
+
+II. Todos os alunos devem estudar os códigos em OpenGL/C++ dos experimentos 4.31, 4.33 e 4.34.
+
+III. Todos os alunos devem usar como base os códigos 4.31, 4.33 e/ou 4.34 ou algum código da pasta
+Sumanta Guha. Não serão aceitos outros códigos como base, por sugerir cola do chatGPT.
+
+IV. A animação solicitada não precisa ser a captura quadro a quadro e a junção destes quadros como
+mostrado nos códigos animateMan*.cpp. O aluno pode definir uma trajetória seguindo alguma função como
+no caso da animação do palhaço e da planta (códigos clown*.cpp e floweringPlant.cpp) que foram códigos
+apresentados em aula. Faça a captura dos quadros só quando não conseguir fazer a animação seguindo a
+trajetória de uma função.
+
+
+
+
+
+
+
+4.59. Enhance animateMan*.cpp:
+
+(a) The character’s body parts, except for the head, are currently all cubes.
+Make them more realistically rounded using cylinders.
+
+(b) Add movement to the character’s feet, which are currently fixed with
+respect to his lower legs. Give him movable hands as well.
+
+(c) As remarked earlier, all the character’s movements are currently parallel
+to a single plane. Enhance to true 3D
+
+
+revisão: parei linha 522

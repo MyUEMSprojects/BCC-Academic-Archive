@@ -1,0 +1,16 @@
+Observações do Professor:
+
+T1: nenhum problemma
+T2:
+   - 1, 2, 3: remoção em posição fixa
+   - 2: não ordena
+T3: - Visualização não funcional
+T4:	
+   - Falha segmentação na remoção e lendo arquivo
+   - Visualização inadequada
+T5:
+   - Algoritmos 4, 5, 6 e 7 com saída incorreta;
+   - Relatório ficaria muito melhor se tivesse usado tabelas; Gráficos confusos;
+   
+T6:
+   - - Não fez descompactação

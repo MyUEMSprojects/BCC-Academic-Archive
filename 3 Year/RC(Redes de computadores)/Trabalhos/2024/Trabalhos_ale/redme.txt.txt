@@ -1,0 +1,44 @@
+Aluno: Alexandre Cordeiro Arruda
+RGM: 43551
+
+
+COMANDO MAKE:
+execute o Make do diretório.
+
+
+COMANDOS SERVIDOR:
+./servidor (IP) (Porta)
+
+
+COMANDO PORTAL:
+./portal (modo) (IP_PORTAL) (porta_PORTAL) (Ip_servidor_1) (porta_servidor_1)... (Ip_servidor_3) (porta_servidor_3)
+
+
+COMANDO CLIENTE:
+./cliente (IP_portal) (Porta_portal)
+
+
+
+exemplos:
+./servidor 192.158.1.38 7070
+./servidor 192.158.1.39 8080
+./servidor 192.158.1.40 9090
+
+./portal 127.0.0.1 round-robin 5555 192.158.1.38 7070 192.158.1.39 8080 192.158.1.40 9090
+ou
+./portal 127.0.0.1 aleatorio 5555 192.158.1.38 7070 192.158.1.39 8080 192.158.1.40 9090
+
+
+./cliente 127.0.0.1 5555
+
+
+
+Orientaçãoes dentro da execução:
+
+Apenas "S"e "L" maiúsculos.
+
+"S [arq1.c, arq2.c, arq3.c, ...]
+
+ESPAÇO entre o "S" e o "["
+
+VIRGULA e ESPAÇO para semparar os arquivos dentro dos colchetes

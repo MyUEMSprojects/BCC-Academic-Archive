@@ -1,0 +1,21 @@
+
+IGNORA ERROS DE DIGITO:
+Router(config)#no ip domain lookup
+Router(config)#
+
+
+
+// uma const essencial
+// Router0
+Router(config)#ip route 0.0.0.0 0.0.0.0 FastEthernet 0/0
+Router(config)#
+
+Router(config)#int s0/0
+Router(config-if)#ip nat in
+Router(config-if)#ip nat inside
+Router(config-if)#int s0/1
+Router(config-if)#ip nat outside
+Router(config-if)#ip nat outside 
+
+Router(config)#access-list 1 permit 172.22.11.0 0.0.0.255
+Router(config)#ip nat inside source list 1 interface serial 0/0 overload

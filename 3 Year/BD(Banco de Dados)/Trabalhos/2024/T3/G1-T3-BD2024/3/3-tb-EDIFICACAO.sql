@@ -1,0 +1,7 @@
+Field	Type	Null	Key	Default	Extra
+ID_EDIFICACAO	int(11)	NO	PRI	NULL	auto_increment
+AREA_CONSTRUIDA	float	NO		NULL	
+PADRAO_CONSTRUCAO	varchar(50)	NO		NULL	
+DESTINACAO	varchar(50)	NO		NULL	
+HABITADA	tinyint(1)	NO		NULL	
+INSCRICAO_IMOVEL	int(11)	NO	MUL	NULL	

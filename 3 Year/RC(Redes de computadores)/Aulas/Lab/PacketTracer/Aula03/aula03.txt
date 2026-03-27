@@ -1,0 +1,16 @@
+# -> na raiz, wr para salvar configuraçao
+entre switchs
+1DouradosTech(config)#int f0/24
+DouradosTech(config-if)#swi
+DouradosTech(config-if)#switchport mode trunk
+DouradosTech(config-if)#no swi
+DouradosTech(config-if)#no switchport mode trunk
+DouradosTech(config-if)#swi
+DouradosTech(config-if)#switchport mode
+
+barrar vlan:
+
+DouradosTech(config)#int f0/24
+DouradosTech(config-if)#swi
+DouradosTech(config-if)#switchport trunk a
+DouradosTech(config-if)#switchport trunk allowed vlan 10, 20

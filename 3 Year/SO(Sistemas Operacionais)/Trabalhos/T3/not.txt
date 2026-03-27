@@ -1,0 +1,4 @@
+# fazer fila de espera para -seq
+# primeiro argumento da entrada é irrelevante para todos menos para o PREEMPTIVO
+# fazer contador de tempo
+# lembrar de resetar a estrutura em cada algoritmo

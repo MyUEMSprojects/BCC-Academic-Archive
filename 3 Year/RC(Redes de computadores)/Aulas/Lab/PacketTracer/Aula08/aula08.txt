@@ -1,0 +1,54 @@
+NAT#show ip nat statistics
+Total translations: 0 (0 static, 0 dynamic, 0 extended)
+Outside Interfaces: Serial0/0
+Inside Interfaces: FastEthernet0/0
+Hits: 0  Misses: 0
+Expired translations: 0
+Dynamic mappings:
+NAT#
+
+
+NAT#show ip nat translations
+NAT# // nao fizemos nenhuma translação
+
+
+NAT#show ip nat translations 
+Pro  Inside global     Inside local       Outside local      Outside global
+tcp 100.1.1.2:1025     172.22.11.101:1025 9.1.1.1:80         9.1.1.1:80
+tcp 100.1.1.2:1027     172.22.11.101:1027 9.1.1.1:80         9.1.1.1:80
+
+NAT#
+
+
+// ACCESS-LIST
+
+Router(config)#LINE VTY 0 15
+Router(config-line)#pas
+Router(config-line)#password senha
+Router(config-line)#login
+Router(config-line)#
+Router(config-line)#pas
+Router(config-line)#ena
+Router(config-line)#enable se
+Router(config-line)#enable secret senha
+
+
+Router(config)#access-list 10 permit host 172.16.10.1
+Router(config)#line VTY 0 15
+Router(config-line)#access-class 10 ?
+  in   Filter incoming connections
+  out  Filter outgoing connections
+Router(config-line)#access-class 10 in
+
+Router(config)#access-list 100 deny ip 192.168.10.0 0.0.0.255 host 172.16.10.1
+Router(config)#access-list 100 permit ip any any
+Router(config)#int f0/1
+Router(config-if)#ip access-group 100 in
+
+
+Router(config)#ip access-list extended firewall
+Router(config-ext-nacl)#deny TCP 172.16.0.0 0.0.0.255 host 192.168.10.1 EQ www
+Router(config-ext-nacl)#permit ip any any // permitir pro resto
+Router(config-if)#ip access-group firewall in // 'in' pq ta entrando no roteador
+
+

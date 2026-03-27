@@ -1,0 +1,338 @@
+/*!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19  Distrib 10.6.18-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: 127.0.0.1    Database: db-g1-2024
+-- ------------------------------------------------------
+-- Server version	10.4.7-MariaDB-1:10.4.7+maria~bionic
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `COMPRADOR`
+--
+
+DROP TABLE IF EXISTS `COMPRADOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `COMPRADOR` (
+  `LISTA_PREFS_TIPOS_IMOVEIS` varchar(255) DEFAULT NULL,
+  `PROFISSAO` varchar(255) DEFAULT NULL,
+  `CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`CPF`),
+  CONSTRAINT `COMPRADOR_ibfk_1` FOREIGN KEY (`CPF`) REFERENCES `PESSOA` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `COMPRADOR`
+--
+
+LOCK TABLES `COMPRADOR` WRITE;
+/*!40000 ALTER TABLE `COMPRADOR` DISABLE KEYS */;
+INSERT INTO `COMPRADOR` VALUES ('Apartamento, Casa','Engenheira','12345678901'),('Casa','Professor','23456789012'),('Apartamento','Advogada','34567890123'),('Sítio, Fazenda','Agricultor','45678901234'),('Casa de Praia','Arquiteta','56789012345');
+/*!40000 ALTER TABLE `COMPRADOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CORRETOR`
+--
+
+DROP TABLE IF EXISTS `CORRETOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CORRETOR` (
+  `NUM_CRECI` int(11) DEFAULT NULL,
+  `DTA_ADMISSAO` date DEFAULT NULL,
+  `CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`CPF`),
+  CONSTRAINT `CORRETOR_ibfk_1` FOREIGN KEY (`CPF`) REFERENCES `PESSOA` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CORRETOR`
+--
+
+LOCK TABLES `CORRETOR` WRITE;
+/*!40000 ALTER TABLE `CORRETOR` DISABLE KEYS */;
+INSERT INTO `CORRETOR` VALUES (1005,'2019-11-30','01234567890'),(1001,'2022-01-10','67890123456'),(1002,'2021-03-15','78901234567'),(1003,'2023-06-20','89012345678'),(1004,'2020-08-05','90123456789');
+/*!40000 ALTER TABLE `CORRETOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `EDIFICACAO`
+--
+
+DROP TABLE IF EXISTS `EDIFICACAO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EDIFICACAO` (
+  `ID_EDIFICACAO` int(11) NOT NULL AUTO_INCREMENT,
+  `AREA_CONSTRUIDA` float NOT NULL,
+  `PADRAO_CONSTRUCAO` varchar(50) NOT NULL,
+  `DESTINACAO` varchar(50) NOT NULL,
+  `HABITADA` tinyint(1) NOT NULL,
+  `INSCRICAO_IMOVEL` int(11) NOT NULL,
+  PRIMARY KEY (`ID_EDIFICACAO`),
+  KEY `INSCRICAO_IMOVEL` (`INSCRICAO_IMOVEL`),
+  CONSTRAINT `EDIFICACAO_ibfk_1` FOREIGN KEY (`INSCRICAO_IMOVEL`) REFERENCES `IMOVEL` (`INSCRICAO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `EDIFICACAO`
+--
+
+LOCK TABLES `EDIFICACAO` WRITE;
+/*!40000 ALTER TABLE `EDIFICACAO` DISABLE KEYS */;
+INSERT INTO `EDIFICACAO` VALUES (1,150,'Alto Padrão','Residencial',1,3001),(2,200,'Médio Padrão','Comercial',0,3002),(3,180,'Alto Padrão','Residencial',1,3003),(4,120,'Baixo Padrão','Residencial',1,3004),(5,250,'Médio Padrão','Comercial',0,3005);
+/*!40000 ALTER TABLE `EDIFICACAO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ENDERECO`
+--
+
+DROP TABLE IF EXISTS `ENDERECO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ENDERECO` (
+  `COD_ENDERECO` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_RUA` varchar(100) NOT NULL,
+  `NUMERO_CASA` int(11) NOT NULL,
+  `COMPLEMENTO` varchar(50) DEFAULT NULL,
+  `BAIRRO` varchar(50) NOT NULL,
+  `TIPO_ENDERECO` varchar(50) NOT NULL,
+  `CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`COD_ENDERECO`),
+  KEY `CPF` (`CPF`),
+  CONSTRAINT `ENDERECO_ibfk_1` FOREIGN KEY (`CPF`) REFERENCES `PESSOA` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ENDERECO`
+--
+
+LOCK TABLES `ENDERECO` WRITE;
+/*!40000 ALTER TABLE `ENDERECO` DISABLE KEYS */;
+INSERT INTO `ENDERECO` VALUES (1,'Rua A',123,'Apto 101','Centro','Residencial','12345678901'),(2,'Rua B',456,'Casa 2','Jardim das Flores','Residencial','23456789012'),(3,'Rua C',789,'Casa 3','São João','Residencial','34567890123'),(4,'Rua D',101,'Apto 204','Vila Nova','Residencial','45678901234'),(5,'Rua E',202,'Casa 4','Alvorada','Residencial','56789012345'),(6,'Rua F',303,'Apto 305','Vila Mariana','Residencial','67890123456'),(7,'Rua G',404,'Casa 5','Monte Azul','Residencial','78901234567'),(8,'Rua H',505,'Apto 506','Conjunto Habitacional','Residencial','89012345678'),(9,'Rua I',606,'Casa 6','São Pedro','Residencial','90123456789'),(10,'Rua J',707,'Apto 707','Jardim das Palmeiras','Residencial','01234567890'),(11,'Rua K',808,'Apto 808','Centro','Residencial','11223344556'),(12,'Rua L',909,'Casa 10','Vila Alegre','Residencial','22334455667'),(13,'Rua M',1010,'Apto 1010','Parque das Flores','Residencial','33445566778'),(14,'Rua N',1111,'Casa 15','Vila das Pedras','Residencial','44556677889'),(15,'Rua O',1212,'Apto 1212','Jardim Tropical','Residencial','55667788990'),(16,'Rua Imóvel 1',101,'Apto 101','Centro','Residencial','11223344556'),(17,'Rua Imóvel 2',102,'Casa 12','Centro','Residencial','22334455667'),(18,'Rua Imóvel 3',103,'Apto 103','Centro','Residencial','33445566778'),(19,'Rua Imóvel 4',104,'Casa 14','Centro','Residencial','44556677889'),(20,'Rua Imóvel 5',105,'Apto 105','Centro','Residencial','55667788990'),(21,'Estrada Fazenda 1',201,'Fazenda 1','Zona Rural','Rural','11223344556'),(22,'Estrada Fazenda 2',202,'Fazenda 2','Zona Rural','Rural','22334455667'),(23,'Estrada Fazenda 3',203,'Fazenda 3','Zona Rural','Rural','33445566778'),(24,'Estrada Fazenda 4',204,'Fazenda 4','Zona Rural','Rural','44556677889'),(25,'Estrada Fazenda 5',205,'Fazenda 5','Zona Rural','Rural','55667788990');
+/*!40000 ALTER TABLE `ENDERECO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `IMOVEL`
+--
+
+DROP TABLE IF EXISTS `IMOVEL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IMOVEL` (
+  `INSCRICAO` int(11) NOT NULL,
+  `PRECO_VENDA` float NOT NULL,
+  `AREA_TOTAL` float NOT NULL,
+  `COD_ENDERECO` int(11) NOT NULL,
+  `CPF_PROPRIETARIO` varchar(11) NOT NULL,
+  `DTA_EXPIRACAO` date NOT NULL,
+  PRIMARY KEY (`INSCRICAO`),
+  KEY `CPF_PROPRIETARIO` (`CPF_PROPRIETARIO`),
+  KEY `COD_ENDERECO` (`COD_ENDERECO`),
+  CONSTRAINT `IMOVEL_ibfk_1` FOREIGN KEY (`CPF_PROPRIETARIO`) REFERENCES `PESSOA` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `IMOVEL_ibfk_2` FOREIGN KEY (`COD_ENDERECO`) REFERENCES `ENDERECO` (`COD_ENDERECO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IMOVEL`
+--
+
+LOCK TABLES `IMOVEL` WRITE;
+/*!40000 ALTER TABLE `IMOVEL` DISABLE KEYS */;
+INSERT INTO `IMOVEL` VALUES (3001,600000,120,16,'11223344556','2026-12-31'),(3002,550000,140,17,'22334455667','2026-12-31'),(3003,700000,160,18,'33445566778','2026-12-31'),(3004,750000,180,19,'44556677889','2026-12-31'),(3005,800000,200,20,'55667788990','2026-12-31'),(4001,300000,500,21,'11223344556','2026-12-31'),(4002,350000,550,22,'22334455667','2026-12-31'),(4003,250000,600,23,'33445566778','2026-12-31'),(4004,400000,650,25,'44556677889','2026-12-31'),(4005,450000,700,26,'55667788990','2026-12-31');
+/*!40000 ALTER TABLE `IMOVEL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `IMOVEL_RURAL`
+--
+
+DROP TABLE IF EXISTS `IMOVEL_RURAL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IMOVEL_RURAL` (
+  `INSCRICAO` int(11) NOT NULL,
+  `TIPO` varchar(50) NOT NULL,
+  `TAXA_ITR` float NOT NULL,
+  `LISTA_MELHORIAS` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`INSCRICAO`),
+  CONSTRAINT `IMOVEL_RURAL_ibfk_1` FOREIGN KEY (`INSCRICAO`) REFERENCES `IMOVEL` (`INSCRICAO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IMOVEL_RURAL`
+--
+
+LOCK TABLES `IMOVEL_RURAL` WRITE;
+/*!40000 ALTER TABLE `IMOVEL_RURAL` DISABLE KEYS */;
+INSERT INTO `IMOVEL_RURAL` VALUES (4001,'Fazenda',0.15,'Melhoria 1, Melhoria 2'),(4002,'Sítio',0.12,'Melhoria 3, Melhoria 4'),(4003,'Chácara',0.18,'Melhoria 5, Melhoria 6'),(4004,'Fazenda',0.16,'Melhoria 7, Melhoria 8'),(4005,'Sítio',0.14,'Melhoria 9, Melhoria 10');
+/*!40000 ALTER TABLE `IMOVEL_RURAL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `IMOVEL_URBANO`
+--
+
+DROP TABLE IF EXISTS `IMOVEL_URBANO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IMOVEL_URBANO` (
+  `INSCRICAO` int(11) NOT NULL,
+  `COD_LOTEAMENTO` int(11) NOT NULL,
+  `QUADRA` varchar(10) NOT NULL,
+  `NUM_ORDEM_QUADRA` int(11) NOT NULL,
+  PRIMARY KEY (`INSCRICAO`),
+  CONSTRAINT `IMOVEL_URBANO_ibfk_1` FOREIGN KEY (`INSCRICAO`) REFERENCES `IMOVEL` (`INSCRICAO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IMOVEL_URBANO`
+--
+
+LOCK TABLES `IMOVEL_URBANO` WRITE;
+/*!40000 ALTER TABLE `IMOVEL_URBANO` DISABLE KEYS */;
+INSERT INTO `IMOVEL_URBANO` VALUES (3001,101,'A',1),(3002,102,'B',2),(3003,103,'C',3),(3004,104,'D',4),(3005,105,'E',5);
+/*!40000 ALTER TABLE `IMOVEL_URBANO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PESSOA`
+--
+
+DROP TABLE IF EXISTS `PESSOA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PESSOA` (
+  `NOME` varchar(20) DEFAULT NULL,
+  `CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`CPF`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PESSOA`
+--
+
+LOCK TABLES `PESSOA` WRITE;
+/*!40000 ALTER TABLE `PESSOA` DISABLE KEYS */;
+INSERT INTO `PESSOA` VALUES ('Larissa Moura','01234567890'),('Lucas Almeida','11223344556'),('Ana Silva','12345678901'),('Joana Ribeiro','22334455667'),('Carlos Pereira','23456789012'),('Fernando Souza','33445566778'),('Maria Oliveira','34567890123'),('Tatiane Martins','44556677889'),('João Santos','45678901234'),('Ricardo Lima','55667788990'),('Patrícia Costa','56789012345'),('Fernanda Lima','67890123456'),('Rafael Sousa','78901234567'),('Beatriz Rocha','89012345678'),('Gabriel Alves','90123456789');
+/*!40000 ALTER TABLE `PESSOA` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PROMESSACOMPRA`
+--
+
+DROP TABLE IF EXISTS `PROMESSACOMPRA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PROMESSACOMPRA` (
+  `ID_PROMESSA` int(11) NOT NULL AUTO_INCREMENT,
+  `DATA_EXPIRACAO` date NOT NULL,
+  `INSCRICAO` int(11) NOT NULL,
+  `PRIORIDADE` int(11) NOT NULL,
+  `CPF_COMPRADOR` varchar(11) NOT NULL,
+  `CPF_CORRETOR` varchar(11) NOT NULL,
+  PRIMARY KEY (`ID_PROMESSA`),
+  KEY `CPF_COMPRADOR` (`CPF_COMPRADOR`),
+  KEY `CPF_CORRETOR` (`CPF_CORRETOR`),
+  KEY `INSCRICAO` (`INSCRICAO`),
+  CONSTRAINT `PROMESSACOMPRA_ibfk_1` FOREIGN KEY (`CPF_COMPRADOR`) REFERENCES `COMPRADOR` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `PROMESSACOMPRA_ibfk_2` FOREIGN KEY (`CPF_CORRETOR`) REFERENCES `CORRETOR` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `PROMESSACOMPRA_ibfk_3` FOREIGN KEY (`INSCRICAO`) REFERENCES `IMOVEL` (`INSCRICAO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PROMESSACOMPRA`
+--
+
+LOCK TABLES `PROMESSACOMPRA` WRITE;
+/*!40000 ALTER TABLE `PROMESSACOMPRA` DISABLE KEYS */;
+INSERT INTO `PROMESSACOMPRA` VALUES (1,'2026-12-31',3001,1,'12345678901','67890123456'),(2,'2026-12-31',3002,2,'23456789012','78901234567'),(3,'2026-12-31',3003,3,'34567890123','89012345678'),(4,'2026-12-31',3004,4,'45678901234','90123456789'),(5,'2026-12-31',3005,5,'56789012345','01234567890');
+/*!40000 ALTER TABLE `PROMESSACOMPRA` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PROPRIETARIO`
+--
+
+DROP TABLE IF EXISTS `PROPRIETARIO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PROPRIETARIO` (
+  `ESTADO_CIVIL` varchar(20) DEFAULT NULL,
+  `CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`CPF`),
+  CONSTRAINT `PROPRIETARIO_ibfk_1` FOREIGN KEY (`CPF`) REFERENCES `PESSOA` (`CPF`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PROPRIETARIO`
+--
+
+LOCK TABLES `PROPRIETARIO` WRITE;
+/*!40000 ALTER TABLE `PROPRIETARIO` DISABLE KEYS */;
+INSERT INTO `PROPRIETARIO` VALUES ('Solteiro','11223344556'),('Casado','22334455667'),('Divorciado','33445566778'),('Viúvo','44556677889'),('Solteiro','55667788990');
+/*!40000 ALTER TABLE `PROPRIETARIO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TELEFONE`
+--
+
+DROP TABLE IF EXISTS `TELEFONE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TELEFONE` (
+  `NUMERO_ORDEM` int(11) NOT NULL AUTO_INCREMENT,
+  `NUMERO` varchar(15) NOT NULL,
+  `PREFIXO` varchar(10) NOT NULL,
+  `COD_ENDERECO` int(11) NOT NULL,
+  PRIMARY KEY (`NUMERO_ORDEM`),
+  KEY `COD_ENDERECO` (`COD_ENDERECO`),
+  CONSTRAINT `TELEFONE_ibfk_1` FOREIGN KEY (`COD_ENDERECO`) REFERENCES `ENDERECO` (`COD_ENDERECO`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TELEFONE`
+--
+
+LOCK TABLES `TELEFONE` WRITE;
+/*!40000 ALTER TABLE `TELEFONE` DISABLE KEYS */;
+INSERT INTO `TELEFONE` VALUES (1,'987654321','11',1),(2,'987654322','11',2),(3,'987654323','11',3),(4,'987654324','11',4),(5,'987654325','11',5),(6,'987654326','11',6),(7,'987654327','11',7),(8,'987654328','11',8),(9,'987654329','11',9),(10,'987654330','11',10),(11,'987654331','11',11),(12,'987654332','11',12),(13,'987654333','11',13),(14,'987654334','11',14),(15,'987654335','11',15),(16,'987654321','11',16),(17,'987654322','11',17),(18,'987654323','11',18),(19,'987654324','11',19),(20,'987654325','11',20),(21,'987654326','11',21),(22,'987654327','11',22),(23,'987654328','11',23),(24,'987654329','11',24),(25,'987654330','11',25);
+/*!40000 ALTER TABLE `TELEFONE` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-11-16 19:53:20

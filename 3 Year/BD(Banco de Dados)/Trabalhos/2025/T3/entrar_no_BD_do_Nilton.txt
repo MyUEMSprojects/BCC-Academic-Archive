@@ -1,0 +1,5 @@
+
+ssh <rgm>@ssh.comp.uems.br -C -L 34100:nilton.laas.comp.uems.br:34100
+
+em outro terminal:
+mariadb -u root -h 127.0.0.1 -P 34100

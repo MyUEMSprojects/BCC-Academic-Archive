@@ -1,0 +1,29 @@
+insert into aluno values("Paulo",18,"COMP");
+insert into aluno values("Maria",15,"MAT");
+insert into aluno values("Carlos",10,"COMP");
+insert into aluno values("Jose",4,"ENG");
+insert into aluno values("Maria",20,"MAT");
+
+insert into disciplina values ("AEDI","COMP1010",2,"COMP");
+insert into disciplina values ("AEDII", "COMP2020", 3, "COMP");
+insert into disciplina values ("BD", "COMP1020", 4, "COMP");
+insert into disciplina values ("MD", "MAT2020", 3, "MAT");
+insert into disciplina values ("CDI", "MAT2021", 5, "MAT");
+insert into disciplina values ("CE", "ENG0001", 5, "ENG");
+insert into disciplina values ("M", "ENG0002", 3, "ENG");
+insert into disciplina values ("CE", "MAT4040", 5, "MAT");
+
+insert into pre_requisito values ("COMP2020", "COMP1010");
+insert into pre_requisito values ("COMP1020", "COMP2020");
+insert into pre_requisito values ("ENG0002", "ENG0001");
+insert into pre_requisito values ("COMP2020", "MAT2020");
+insert into pre_requisito values ("MAT2021", "MAT2020");
+
+insert into historico_escolar values (18, "COMP1010", "B");
+insert into historico_escolar values (18, "COMP2020", "C");
+insert into historico_escolar values (10, "COMP1020", "A");
+insert into historico_escolar values (10, "MAT2020", "A");
+insert into historico_escolar values (15, "MAT2020", "B");
+insert into historico_escolar values (4, "ENG0001", "B");
+insert into historico_escolar values (20, "MAT2021", "C");
+insert into historico_escolar values (20, "MAT2020", "A");

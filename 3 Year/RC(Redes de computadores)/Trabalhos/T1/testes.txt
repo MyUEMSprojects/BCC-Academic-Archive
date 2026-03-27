@@ -1,0 +1,52 @@
+Posto A: Gasolina (2), Preço 5890, Lat: -22.225010, Lon: -54.815230
+Posto B: Gasolina (2), Preço 5850, Lat: -22.219754, Lon: -54.820684
+Posto C: Gasolina (2), Preço 5910, Lat: -22.220588, Lon: -54.798471
+Posto D: Álcool (1), Preço 4650, Lat: -22.231120, Lon: -54.809970
+
+Escolha a opção 2 (Pesquisar Preço 'P').
+
+Pesquisa 1:
+2(pesquisa)
+2
+500
+-22.2218
+-54.8064
+R: recebe o ACK e a resposta do resultado, a resposta deve conter os dados do posto B
+
+2(pesquisa)
+2
+1000
+-22.2218
+-54.8064
+R: recebe o ACK e a resposta do resultado, a resposta deve conter os dados do posto A
+
+2(pesquisa)
+1
+5000
+-22.2218
+-54.8064
+R: recebe o ACK e a resposta do resultado, a resposta deve conter os dados do posto D
+
+2(pesquisa)
+2
+900
+-22.2218
+-54.8064
+R: recebe o ACK e a resposta do resultado, a resposta deve conter os dados do posto C
+
+----------------------------------------------_
+Pesquisa 2:
+
+2(pesquisa)
+0
+5000
+-22.2218
+-54.8064
+R: nenhum resultado encontrado
+
+2
+2
+100
+-22.2218
+-54.8064
+R: nenhum resultado encontrado

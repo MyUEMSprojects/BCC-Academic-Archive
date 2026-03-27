@@ -1,0 +1,4 @@
+Field	Type	Null	Key	Default	Extra
+NOME_TIPO	varchar(20)	NO	PRI	NULL	
+NUMERO_MAXIMO_ASSENTOS	int(11)	YES		NULL	
+EMPRESA_FABRICANTE	varchar(50)	YES		NULL	

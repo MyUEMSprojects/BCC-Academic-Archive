@@ -1,0 +1,31 @@
+comando(switch)
+ena -> enable
+Switch#configure terminal
+exit -> para voltar
+hostname -> trocar nome do sistema
+? -> mostra os comandos disponiveis
+
+
+Vlan(switch):
+
+vlan ? -> args do comandp
+vlan <numero_vlan>
+name <nome_vlan> -> nomeia vlan
+# repetir comando a a palavra "no" -> para apagar a configuração
+show vlan brief -> mostra as vlans no #
+int fa0/1 -> entrar na entrada
+switchport mode access
+switchport access vlan 10
+
+com range:
+DouradosTech(config)#int range fa0/1 - 8
+DouradosTech(config-if-range)#switchport mode access
+DouradosTech(config-if-range)#switchport access vlan 10
+
+
+
+
+
+
+
+

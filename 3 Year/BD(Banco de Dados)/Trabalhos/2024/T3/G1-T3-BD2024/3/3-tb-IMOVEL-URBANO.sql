@@ -1,0 +1,5 @@
+Field	Type	Null	Key	Default	Extra
+INSCRICAO	int(11)	NO	PRI	NULL	
+COD_LOTEAMENTO	int(11)	NO		NULL	
+QUADRA	varchar(10)	NO		NULL	
+NUM_ORDEM_QUADRA	int(11)	NO		NULL	

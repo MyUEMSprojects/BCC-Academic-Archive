@@ -1,0 +1,123 @@
+// R4(roteador)
+
+Router(config)#int f0/0
+Router(config-if)#ip add 192.168.10.3 255.255.255.0
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#int f0/1
+Router(config-if)#ip add 10.10.10.2 255.255.255.252
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#
+
+
+// R3(roteador)
+
+Router(config)#int f0/0
+Router(config-if)#ip add 10.10.10.1 255.255.255.252
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+
+Router(config)#int f0/1
+Router(config-if)#ip add 20.20.20.1 255.255.255.252
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#
+
+
+// R5(roteador)
+
+Router(config)#int f0/1
+Router(config-if)#ip add 192.168.20.3 255.255.255.0
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#int f0/0
+Router(config-if)#ip add 20.20.20.2 255.255.255.252
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#do wr
+Building configuration...
+[OK]
+Router(config-if)#
+
+
+
+// BGP(para rede grande e passa trafego de diversas redes pela rede)
+// BGi(interior) inside
+// BGPe(exterior) outside
+
+// R4
+Router(config)#router bgp 20
+Router(config-router)#bgp router-id 1.1.1.1
+Router(config-router)#neighbor 10.10.10.1 Re
+Router(config-router)#neighbor 10.10.10.1 Remote-as 35
+Router(config-router)#network 192.168.10.0 mask 255.255.255.0
+Router(config-router)#network 10.10.10.0 mask 255.255.255.252
+
+// R5
+
+Router(config)#router bgp 50
+Router(config-router)#bgp router-id 2.2.2.2
+Router(config-router)#nei
+Router(config-router)#neighbor 20.20.20.1 re
+Router(config-router)#neighbor 20.20.20.1 remote-as 35
+Router(config-router)#net
+Router(config-router)#network 192.168.20.0 mask 255.255.255.0
+Router(config-router)#net
+Router(config-router)#network 20.20.20.00 mask 255.255.255.252
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router(config-router)#
+
+
+// R3
+
+Router(config)#router bgp 35
+Router(config-router)#bgp router-id 3.3.3.3
+Router(config-router)#neighbor 10.10.10.2 remote-as 20
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 10.10.10.2 Up
+Router(config-router)#neighbor 20.20.20.2 remote-as 50
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 20.20.20.2 Up
+Router(config-router)#network 10.10.10.0 mask 255.255.255.252
+Router(config-router)#network 20.20.20.0 mask 255.255.255.252
+Router(config-router)#do wr
+Building configuration...
+[OK]
+Router(config-router)#
+
+Router#show ip bgp neighbors
+
+Router#show ip bgp summary
+
+//
+
+

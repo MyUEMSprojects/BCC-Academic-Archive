@@ -1,0 +1,14 @@
+cabos:
+Par trançado - máquinas diferentes
+crossover - máquinas iguais
+
+DHCP - atribui endereço IP de forma dinamica
+
+HUB(eletromecanico):
+ - é recomendando colocar em pontos da rede onde tem menos acesso ou nao tem necessidade de grande largura de banda
+ 
+ Switch(eletromecanico):
+ - existe o Switch camada 3(mais caro e raro) que é roteador e switch
+ 
+ Switch(config entre dois Switchs, "cascateamento"):
+ 
