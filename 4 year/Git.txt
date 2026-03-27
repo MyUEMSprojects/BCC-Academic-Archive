@@ -1,0 +1,118 @@
+--------- GIT BÁSICO ---------
+
+git init --> iniciar repositorio
+
+git remote -v --> ver as origens
+git remote rm orgin --> remover origens
+git remote add origin --> add origem
+git status --> verificar modificações
+
+-f --> flag de 'force'
+
+git rm --> deletar arquivos da monitoração do git
+git add --> adicionar novos arquivos
+
+git clone _referencia_ . --> clonar na pasta atual
+git log --> log das alterações q fizemos
+git mv --> mover ou renomear arquivos
+git mv novo_nome _pasta_
+ 
+git checkout --> retornando ao estado original
+git checkout --> retornando tudo ao estado original
+git checkout caminho arquivo/arquivo --> retornando apenas um arquivo ao estado original
+
+git reset --> desfazer todas as mudanças(partir do zero de um branch)
+git reset --hard _branch_ --> reset forçado
+
+---------- TRABALHANDO COM BRANCH -------------------
+
+git branch --> ver branchs
+git branch _nome_branch --> criar branch
+git checkout -b _nome_branch --> mudar de branch
+
+!!! SEMPRE COMITAR ANTES DE MUDAR DE BRANCH E SEMPRE CRIAR BRANCH A PARTIR DA MASTER !!!
+
+git merge _nome_branch --> unir branch
+ex: git merge teste_criação_2 --> vc esta master
+
+git stash --> salvar mods atuais pra seguir em outra abordagem de solucao e nao perder o código
+-- o branch sera resetado pra sua versao do repo
+git stash list --> verificar as stashs criadas
+git stash _nome_ --> recuperar stash criada
+git stash show -p _numbero_dela --> mostra as alterações dela(stash)
+git stash clear --> limpar as stashs de uma branch
+git stash drop _numero_stash --> deletar stash especifica
+
+git tag -a _nome_ -m "msg" --> criar tags no branch, é parecido com stash, porém a gente nao quer jogar no lixo
+-- criar marcos no desenvolvimento(checkpoints)
+
+git show _nome_ --> verificar tag
+git checkout _nome_ trocar de tag
+
+git push origin _nome_tag --> envia a tag pra origin
+git push origin --tags --> enviar mais tags
+
+-------- ATUALIZANDO E COMPARTILHANDO REPOSI -------
+
+git fetch --> atualiza todas as branchs e tags q nao sao reconhecidos por voce
+
+git push --> enviar atualizações
+git pull -->  receber atualizações
+
+
+git remote --> adionar um repo pra trackear ou remover
+git remote add origin <link> --> criar um repo remoto
+
+-- remover origin --
+git remote rm orgin
+git remote -v
+git pull
+----- --------
+
+SUBMODULOS:
+
+--> maneira de ter dois ou mais projetos em um repositório
+git submodule add <repoLink> --> adicionar um submodulo
+git submodule --> verificar os submodulos
+
+--> para atualizar um submodulo devemos commitar as mudanças
+
+git push --recurse-submodules=on-demand --> enviar p/ o repo do submodulo
+--> vai fazer atualização somente no submodulo
+
+-----  ANALISE E INSPEÇÃO DE REPOSITÓRIOS ---------
+
+git show --> mostra informações uteis, tipo informações do branch atual e seus commits
+--> como tbm as modificações em cada commit
+git show <tag> --> info das tag
+
+git diff --> exibir difereças de um branch
+git diff <arquivo_a> <arquivo_b> --> ver diferenças entre arquivos
+
+git shortlog --> nos da um log resumido do projeto
+
+
+----- ADM DE REPO ------------
+
+git clean --> verificar e limpar arquivos nao trackeados
+git gc --> gc(garbage collector) identifica arquivos que nao sao mais necessarios e os deleta
+--> nos da mais performance, é recomendado usar pelo menos uma vez no mes
+
+git fsck --> (File System Check) verifica a integridade dos arquivos e sua conectvidade
+--> comando rotina, pra ver se esta tudo certo com os arquivos
+
+git reflog --> vai mapear todos os seus passos no repo, até uma mudança de branch é inserida neste log
+git log --> apenas armazena os commits de uma branch
+--> reflogs ficam salvos até expirar, 30dias
+
+git archive --> transformar um rep em um arquivo compactado
+git archive --format zip --output master_files.zip master --> a master vai ser zipada no master_files.zip 
+
+---------- Melhorando os Commits do projeto -----------
+
+git rebase <atual> <funcionalidade> -i --> voce pode remover os commits(squash) e pra renomear(reword)
+
+git checkout -b private_nome
+
+
+
