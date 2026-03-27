@@ -1,0 +1,4 @@
+gcc -o lagrange lagrange.c -lm
+./lagrange
+gcc -o newton newton.c -lm
+./newton

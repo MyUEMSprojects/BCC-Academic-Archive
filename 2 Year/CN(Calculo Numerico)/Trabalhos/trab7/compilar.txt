@@ -1,0 +1,7 @@
+Exemplo de compilação usando gcc no terminal
+
+gcc -o linear linear.c -lm
+
+rodar código(no terminal):
+
+./linear
