@@ -1,0 +1,9 @@
+possivel conteudo da p2:
+
+- Minimização de um AF
+- AF p/ ER
+- AF p/ Gramatica regular
+- ER p/ AF
+- Gramatica regular p/ Automato pilha
+- arvore de derivação
+- Teorema do Bombeamento

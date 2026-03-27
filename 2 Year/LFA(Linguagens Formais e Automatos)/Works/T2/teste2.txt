@@ -1,0 +1,35 @@
+---------Conversão AFN para AFD---------------
+Informe os estados: 1,2
+Informe o alfabeto: a,b
+Informe as transições:
+D(1,a): 1,2
+D(1,b): 2
+D(1,): 
+D(2,a): 
+D(2,b): 1
+D(2,): 
+Informe o estado inicial: 1
+Informe o(s) estado(s) de aceitação: 1
+---------Resultado da Conversão---------
+Estados:
+1
+2
+12
+
+Alfabeto:
+['a', 'b']
+
+Transições:
+D(1, a): 12
+D(1, b): 2
+D(2, a): 
+D(2, b): 1
+D(12, a): 12
+D(12, b): 12
+
+Estado Inicial:
+1
+
+Estados Finais:
+1
+12

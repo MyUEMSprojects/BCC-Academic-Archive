@@ -1,0 +1,3 @@
+/home/felipe/UEMS/Github/2023/Trabalhos/PP/build/CMakeFiles/hipo.dir
+/home/felipe/UEMS/Github/2023/Trabalhos/PP/build/CMakeFiles/edit_cache.dir
+/home/felipe/UEMS/Github/2023/Trabalhos/PP/build/CMakeFiles/rebuild_cache.dir

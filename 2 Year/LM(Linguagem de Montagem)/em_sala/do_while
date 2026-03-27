@@ -1,0 +1,19 @@
+addi $v0, $zero, 5
+syscall
+add $s0, $zero, $v0
+
+addi $v0, $zero, 5
+syscall
+add $s1, $zero, $v0
+
+#do{
+do:
+#impress�o a
+addi $v0, $zero, 1
+add $a0, $zero, $s1
+syscall
+#++a 
+addi $s0,$s0,1
+#}while (a<b);
+slt $t0, $s0, $s1
+bne $t0, $zero, do 	

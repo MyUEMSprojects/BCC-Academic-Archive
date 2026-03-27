@@ -1,0 +1,4 @@
+addi $s0, $zero, -214
+08hexa 16 0 imediato
+
+0010 00

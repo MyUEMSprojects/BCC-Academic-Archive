@@ -1,0 +1,25 @@
+addi $v0, $zero, 5
+syscall
+add $s0, $zero, $v0
+
+addi $v0, $zero, 5
+syscall
+add $s1, $zero, $v0
+#if(a<b)
+slt $t0, $s0, $s1
+beq $t0, $zero, ELSE
+#imprima b
+addi $v0, $zero, 1
+add $a0, $zero, $s1
+syscall
+j FIM_DO_ELSE
+#else
+ELSE:
+#imprima a
+addi $v0, $zero, 1
+add $a0, $zero, $s0
+syscall
+FIM_DO_ELSE:
+
+addi $v0, $zero, 10
+syscall

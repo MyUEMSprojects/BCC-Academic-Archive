@@ -1,0 +1,181 @@
+Informe os estados (separados por vírgula): q1,q2,q3,q4,q5,qaccept
+Informe o alfabeto (separados por vírgula): 0,1,x,L|
+Informe as transições no formato 'prox_estado,novo_simbolo,direcao' (ex: 'q1,1,D'). Use '_' para manter o mesmo símbolo:
+D(q1,0): q2,L|,D
+D(q1,1): 
+D(q1,x): 
+D(q1,L|): 
+D(q2,0): q3,x,D
+D(q2,1): 
+D(q2,x): q2,_,D
+D(q2,L|): qaccept,_,D
+D(q3,0): q4,_,D
+D(q3,1): 
+D(q3,x): q3,_,D
+D(q3,L|): q5,_,E
+D(q4,0): q3,x,D
+D(q4,1): 
+D(q4,x): q4,_,D
+D(q4,L|): 
+D(q5,0): q5,_,E
+D(q5,1): 
+D(q5,x): q5,_,E
+D(q5,L|): q2,_,D
+D(qaccept,0): 
+D(qaccept,1): 
+D(qaccept,x): 
+D(qaccept,L|): 
+Informe o estado inicial: q1
+Informe o(s) estado(s) de aceitação (separados por vírgula): qaccept
+Informe a palavra a ser verificada: 0000
+
+Fita da maquina de turing: 
+Transição: (q1, 0) => q2, L|, D
+Simbolo atual: 0, Pilha: ['0', '0', '0', '0', 'L|']
+
+Transição: (q2, 0) => q3, x, D
+Simbolo atual: 0, Pilha: ['L|', '0', '0', '0', 'L|']
+
+Transição: (q3, 0) => q4, _, D
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', '0', 'L|']
+
+Transição: (q4, 0) => q3, x, D
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', '0', 'L|']
+
+Transição: (q3, L|) => q5, _, E
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, 0) => q5, _, E
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, 0) => q3, x, D
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q3, x) => q3, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q2, 0) => q3, x, D
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q3, x) => q3, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q2, 0) => q3, x, D
+Simbolo atual: 0, Pilha: ['L|', 'x', '0', 'x', 'L|']
+
+Transição: (q3, x) => q3, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q3, L|) => q5, _, E
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Transição: (q3, x) => q3, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q3, L|) => q5, _, E
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+
+Transição: (q3, L|) => q5, _, E
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Transição: (q5, x) => q5, _, E
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+Transição: (q5, L|) => q2, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+
+Transição: (q2, x) => q2, _, D
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q2, x) => q2, _, D
+Simbolo atual: x, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Transição: (q2, L|) => qaccept, _, D
+Simbolo atual: L|, Pilha: ['L|', 'x', 'x', 'x', 'L|']
+
+Palavra 0000 aceita!

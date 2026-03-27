@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/hipo.dir/src/main.cpp.o CMakeFiles/hipo.dir/src/Interface.cpp.o CMakeFiles/hipo.dir/src/Memory.cpp.o CMakeFiles/hipo.dir/src/CPU.cpp.o -o hipo  -lsfml-graphics -lsfml-window -lsfml-system 

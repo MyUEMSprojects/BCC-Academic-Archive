@@ -1,0 +1,63 @@
+# leitura do n -> a0
+addi $v0, $zero, 5
+syscall
+add $a0, $zero, $v0
+
+#leitura do n -> a1
+addi $v0, $zero, 5
+syscall
+add $a1, $zero, $v0
+
+#leitura do m -> a0
+addi $v0, $zero, 5
+syscall
+add $a0, $zero, $v0
+
+jal Ackermann_Peter
+
+add $a0, $zero, $v0
+addi $v0, $zero, 1
+syscall
+
+addi $v0, $zero, 10
+syscall
+
+Ackermann_Peter:
+	bne $a1, $zero, mMaiorQue0
+	addi $v0, $a1, 1
+	jr $ra
+mMaiorQue0:
+	add $fp, $zero, $sp
+	sw $sp, 0($fp)
+	addi $sp, $sp, -20
+	sw $a0, -4($fp)
+	sw $a1, -8($fp)
+	sw $ra, -12($fp)
+	sw $fp, -16($fp)
+	
+	bne $a1, $zero, nMaiorQue0
+	addi $a0, $0, -1
+	addi $a1, $zero, 1
+	
+	jal Ackermann_Peter
+	
+	j retorno_Ackermann_Peter
+
+	
+nMaiorQue0:
+	addi $a1, $a1, -1
+	jal Ackermann_Peter
+
+	addi $a0, $a0, -1
+	add $a1, $zero, $s0
+	jal Ackermann_Peter
+
+retorno_Ackermann_Peter:
+	lw $fp, 4($sp)
+	lw $ra, -12($fp)
+	lw $a1, -8($fp)
+	lw $a2, -4($fp)
+	lw $sp, 0($fp)
+	
+	jr $ra
+	

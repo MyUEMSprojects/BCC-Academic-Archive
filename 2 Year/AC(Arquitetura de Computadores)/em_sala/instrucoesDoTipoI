@@ -1,0 +1,51 @@
+addi $s0, $zero, -214           214 1101 0110
+08hexa 16 0 imediato            1111 1111 0010 1001  complemento de 1
+0010 00|00 000|1 000|          +                  1
+op       rs     rt            ---------------------
+                                1111 1111 0010 1010  complemente de 2
+
+0010 00|00 000|1 0000| 1111 1111 0010 1010
+# op       rs      rt         imediato
+2        0    |   0      F    F     2    A
+
+
+# Armazena o conteudo de $s0 em MEM[$sp+0]
+sw $s0, 0($sp)
+# 0 é o offset $sp é o endereço base
+# MEM[R[rs] + imediato] = R[rt]
+sw $s0, 0($sp)
+#  rt   rs
+3b 16d  0 29d
+
+0110 11|11101|1 0000|0000 0000 0000 0000
+6     F  B      0     0    0     0   0
+
+
+--------------------------------------------
+
+lw $s0, 0($sp)     R[rt] = MEM[R[rs] + imed]
+23h
+11 0011|11 101|1 0000|0000 0000 0000 0000
+
+# Branch(desvio condicional)
+# bne - branch not equal]
+# beq - branch equal
+ex: beq rt, rs, EndBranch
+
+addi $s0, $zero, 10        66FFAA00
+addi $s1, $zero, 9         66FFAA04
+beq $s0, $s1, endereco     66FFAA08
+addi $s1, $s1, 1           66FFAA0C
+endereco: add $s2, $s0, $s1  66FFAAA10
+
+#2¹⁵ 0000 0000 0000 0100
+
+
+beq $s0, $s1, endereco
+04h 16   17      1
+
+#calculando branch
+0001 00|10 001|1 0000| 0000 0000 0000 0001
+1      2      3      0   0   0    0     1
+
+
